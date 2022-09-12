@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <script src="https://code.jquery.com/jquery-3.6.1.js"></script> <!--  jquery-->
+
+</head>
+<body>
+
+<style>
+  * {
+    /*reset toàn bộ thẻ trong web */
+    margin: 0px;
+    padding: 0px;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  nav {
+    background-color: #D6A2E8;
+  }
+
+  #main-menu {
+    display: flex; /* cho menu hiển thị theo hàng ngang*/
+  }
+
+  nav #main-menu li a {
+    color: #ffffff;
+    text-decoration: none; /*bỏ gạch chân*/
+    display: block; /* display block để tác động vào trái phải trên dưới*/
+    padding: 8px 10px; /* trái-phải, trên-dưới*/
+  }
+
+  nav #main-menu li:hover a { /*hover chuột*/
+    background: #44bd32; /*màu nền khi trỏ vào tên*/
+    transition: all 0.5s;
+  }
+
+  #toggle {
+    display: none; /*khi ở screen lớn thì k hiện 3 dấu gạch*/
+    background: #82589F;
+    color: #ffffff;
+    text-align: right;
+    padding: 10px;
+    font-size: 15px;
+    cursor: pointer; /*để người dùng biết chỗ này có thể bấm, từ mũi tên thành bàn tay chỉ*/
+
+  }
+
+  /*@media screen and (min-width: 768px) khi ở màn to thì k có dấu gạch*/
+  @media screen and (max-width: 768px) {
+    /* media-screen giúp trình duyệt biết đc sự thay đổi CSS thay đổi kích thước của màn hình, bé hơn 768px thì thu nhỏ menu vào*/
+    #main-menu {
+      flex-direction: column; /* chuyển menu từ hàng ngang thành hàng dọc*/
+      text-align: center; /*khi chuyển qua màn hình nhỏ thì thu menu vào*/
+    }
+
+    #toggle {
+      /*bật tắt dấu 3 gạch khi ở mà nhỏ*/
+      display: block;
+    }
+
+    /*ẩn menu*/
+    nav {
+      display: none;
+    }
+    /* khi bấm vào 3 dấu gạch thì menu sổ xuống -  không thì là 1 thanh ngang*/
+  }
+</style>
+<!--/* khi người dùng bấm vào dấu 3 gạch thì sử dụng #toggle sự kiện là click*/-->
+<!--/*khi web đc load xong thì thực hiện 1 chức năng*/-->
+
+<script>
+  $(document).ready(function() {
+    $('#toggle').click(function() {
+      $('nav').slideToggle();
+    });
+  })
+</script>
+
+<div id="wrapper">
+  <div id="header">
+    <div id="toggle">
+      <i class="fa-solid fa-bars"></i>
+
+    </div>
+    <nav>
+      <ul id="main-menu">
+        <li>
+          <a href=""><i class="fa-solid fa-heart"></i>Trang Chủ</a>
+        </li>
+
+        <li>
+          <a href="">Giới Thiệu</a>
+        </li>
+
+        <li>
+          <a href="">Sản Phẩm</a>
+        </li>
+
+        <li>
+          <a href="">Dịch Vụ</a>
+        </li>
+
+        <li>
+          <a href="">Blog</a>
+        </li>
+
+        <li>
+          <a href="">Liên Hệ</a>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+</div>
+</body>
+</html>
